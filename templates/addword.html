@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Add a medical term to the Dictionary</h3>
+<div class="row">
+    <form action="" method="POST" class="col s12">
+        <div class="row">
+            
+            <div class="input-field col s12">
+                <i class="material-icons prefix">menu_book</i>
+                <input id="task_name" name="task_name" type="text">
+                <label for="icon_prefix">Medical Term</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">help_center</i>
+                <textarea name="task_description" id="task_description" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Definition</label>
+            </div>
+        </div>
+        <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">medical_services</i>
+                    <select id="speciality" name="speciality_name">
+                  <option value="" disabled selected>Choose speciality</option>
+                  {% for speciality in speciality_name %}
+                      <option value="{{speciality.speciality_name}}">{{speciality.speciality_name}}</option>
+                  {% endfor %}
+                    </select>
+                    <label>Speciality</label>
+                </div>
+        </div>
+        
+    </form>
+</div>
+
+{% endblock %}

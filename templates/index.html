@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <ul >
+        {% for diagnosis in diagnosis %}
+        <li>
+            <div >
+                <div class="col s9">
+                    <strong>{{diagnosis.term}}</strong>
+                </div>
+            </div>
+            <div >
+                <span>
+                    {{diagnosis.definition}}
+                </span>
+            </div>
+            <div >
+                <span>
+                    {{diagnosis.speciality_name}}
+                </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
