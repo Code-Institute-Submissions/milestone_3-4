@@ -14,11 +14,12 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('index')}}">Search</a></li>
                     <li><a href="{{url_for('add_word')}}">Add Definition</a></li>
-                    
+                    <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('index')}}">Seatch</a></li>
                     <li><a href="{{url_for('add_word')}}">Add definition</a></li>
+                    <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
                     
                 </ul>
             </div>
@@ -37,8 +38,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.collapsible').collapsible();
+           
             $('select').material_select();
+            $(".button-collapse").sideNav();
         });
     </script>
 </body>
