@@ -12,12 +12,14 @@
                 <a href="{{url_for('index')}}" class="brand-logo">Medical Term Dictionary</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('index')}}">Search</a></li>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('search')}}">Search</a></li>
                     <li><a href="{{url_for('add_word')}}">Add Definition</a></li>
                     <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('index')}}">Seatch</a></li>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('search')}}">Search</a></li>
                     <li><a href="{{url_for('add_word')}}">Add definition</a></li>
                     <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
                     
@@ -62,6 +64,7 @@
             $(".button-collapse").sideNav();
         });
 </script>
+
 </body>
 
 </html>

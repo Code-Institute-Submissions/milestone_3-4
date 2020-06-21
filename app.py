@@ -15,6 +15,9 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html", terms=mongo.db.terms.find())
 
+@app.route('/search')
+def search():
+    return render_template("search.html", terms=mongo.db.terms.find())
 
 
 
@@ -28,12 +31,12 @@ def add_word():
 def insert_word():
     terms = mongo.db.terms
     terms.insert_one(request.form.to_dict())
-    return redirect(url_for('index'))
+    return redirect(url_for('search'))
 
 @app.route('/delete_word/<terms_id>')
 def delete_word(terms_id):
     mongo.db.terms.remove({'_id': ObjectId(terms_id)})
-    return redirect(url_for('index'))
+    return redirect(url_for('search'))
 
 @app.route('/edit_word/<terms_id>')
 def edit_word(terms_id):
@@ -52,7 +55,7 @@ def update_word(terms_id):
         'definition':request.form.get('definition'),
         'speciality_name': request.form.get('speciality_name'),
     })
-    return redirect(url_for('index'))
+    return redirect(url_for('search'))
 
 @app.route('/get_specialities')
 def get_specialities():
