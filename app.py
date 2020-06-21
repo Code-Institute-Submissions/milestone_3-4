@@ -15,6 +15,9 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html", terms=mongo.db.terms.find())
 
+
+
+
 @app.route('/add_word')
 def add_word():
     return render_template('addword.html',
