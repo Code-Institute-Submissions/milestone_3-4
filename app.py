@@ -91,6 +91,13 @@ def add_speciality():
     return render_template('addspeciality.html')
 
 
+@app.route('/search_term', methods=[''])
+def search_term():
+    terms=mongo.db.terms.find({"$search": {"$search": search_text}}).limit(10)
+    return render_template("results.html", terms=terms, term_search=term_search)
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

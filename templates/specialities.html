@@ -1,34 +1,39 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
+	<div>
+		<h3>Specialities </h3>
 
-	<h3>Specialities</h3>
+		<a href="{{url_for('add_speciality')}}" class="waves-effect waves-light btn-floating btn_small grey darken-1">
+			<i class="material-icons right">playlist_add</i>
+		</a>
+	</div>
+
+</div>
 {% for speciality in speciality %}
 
 
 
 	<div class="row">
-		<div class="col s12 m6 l6">
-			<div class="card card white">
-				<div class="card-content indigo lighten-5">
-					<span class="card-title col s12 m6 l9"><strong>{{speciality.speciality_name}}</strong></span>
-					<div class=""><a href="{{url_for('edit_speciality', speciality_id=speciality._id)}}"
-						class="waves-effect waves-light btn-floating btn_small grey darken-1"><i class="material-icons">edit</i></a>
-
-					<a href="{{url_for('delete_speciality', speciality_id=speciality._id)}}"
-						class="waves-effect waves-light btn-floating btn_small red darken-4"><i class="material-icons">delete</i></a></div>
+		<div class="row">
+			<div class="col s12 m6 l6">
+				<div class="card card white">
+					<div class="card-content indigo lighten-5">
+						<span class="card-title col s12 m6 l9"><strong>{{speciality.speciality_name}}</strong></span>
+						<div class=""><a href="{{url_for('edit_speciality', speciality_id=speciality._id)}}"
+								class="waves-effect waves-light btn-floating btn_small grey darken-1"><i class="material-icons">edit</i></a>
+	
+							<a href="{{url_for('delete_speciality', speciality_id=speciality._id)}}"
+								class="waves-effect waves-light btn-floating btn_small red darken-4"><i class="material-icons">delete</i></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+    
 
 
 {% endfor %}
-<div class="row"></div>
-<div class="row">
-	<a href="{{url_for('add_speciality')}}" class="waves-effect waves-light btn-floating btn_small grey darken-1">
-		<i class="material-icons right">playlist_add</i>
-	</a>
-</div>
-</div>
+
 {% endblock %}

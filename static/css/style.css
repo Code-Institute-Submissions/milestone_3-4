@@ -1,6 +1,55 @@
-/*body {*/
-/*   background-color: red;*/
-/*}*/
+
+
+
+
+/* -----------------------Home page ----------------*/
+.index_background  {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("/static/img/library.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-position: center;
+    margin-top:20px;
+}
+
+.text_welcome {
+    margin-left:30px;
+}
+
+.index_start_text {
+    margin-top: 100px;
+    margin-bottom:50px;
+}
+
+.text{
+    font-weight:900;
+    text-shadow: 0px 0px 3px #000;
+
+}
+
+.search_button_homepage {
+    margin-bottom:300px;
+}
+
+
+/* -----------------------Footer ----------------*/
+
+
+.page-footer {
+    padding-bottom: 10px;
+    margin-top: 0;
+
+}
+
+.individual-page-footer {
+    margin-bottom:250px;
+}
+
+
+
 
 /*.btn_small {
     height: 24px;

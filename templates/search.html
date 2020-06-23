@@ -1,38 +1,34 @@
+
+
 {% extends 'base.html' %}
 {% block content %}
 
+<h3>Search the Dictionary</h3>
+
 <div class="row">
-	<div class="carousel">
-		{% for terms in terms %}
+    <form action="{{ url_for('search_term') }}" method="POST" class="col s12">
+        <div class="row">
+            
+            <div class="input-field col s12">
+                <i class="material-icons prefix">menu_book</i>
+                <input id="search_term" name="search_term" type="text" class="validate">
+                <label for="icon_prefix"> Enter Medical Term</label>
+            </div>
+        </div>
 
-		<div class="row">
-			<div class="col s12 m6 carousel-item">
-				<div class="card indigo lighten-5 center-align">
-					<div>
-						<span class="card-title term"><strong>{{terms.term}}</strong></span>
-					</div>
-
-					<div class="card-content indigo-text">
-						<p><span>
-		                    {{terms.definition}}
-		                </span></p>
-						<p><span>
-		                    Speciality - {{terms.speciality_name}}
-		                </span></p>
-					</div>
-					<div class="card-action">
-						<a href="{{url_for('edit_word', terms_id=terms._id)}}"
-							class="waves-effect waves-light btn-floating btn_small grey darken-1"><i class="material-icons">edit</i></a>
-						<a href="{{url_for('delete_word', terms_id=terms._id)}}"
-							class="waves-effect waves-light btn-floating btn_small red darken-4"><i class="material-icons">delete</i></a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="row individual-page-footer">
+            <button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
+            <i class="material-icons right">search</i></a>    
+             </button>
+             <button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
+            <i class="material-icons right">close</i></a>    
+             </button>
+        </div>
+    </form>
+</div>
 
 
 
-
-		{% endfor %}
-
-		{% endblock %}
+		
+    
+{% endblock %}

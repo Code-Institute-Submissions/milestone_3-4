@@ -2,68 +2,67 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+
 </head>
-<header>
-        <nav>
-            <div class="nav-wrapper  indigo darken-3">
-                <a href="{{url_for('index')}}" class="brand-logo">Medical Term Dictionary</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('search')}}">Search</a></li>
-                    <li><a href="{{url_for('add_word')}}">Add Definition</a></li>
-                    <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('search')}}">Search</a></li>
-                    <li><a href="{{url_for('add_word')}}">Add definition</a></li>
-                    <li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
-                    
-                </ul>
-            </div>
-        </nav>
-    </header>
 
 <body>
 
-<div class="container">
-	
 
-	<div>
+	<header>
+		<nav>
+			<div class="nav-wrapper  indigo darken-3">
+				<a href="{{url_for('index')}}" class="brand-logo">Medical Term Dictionary</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="{{url_for('index')}}">Home</a></li>
+					<li><a href="{{url_for('search')}}">Search</a></li>
+					<li><a href="{{url_for('add_word')}}">Add Definition</a></li>
+					<li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="{{url_for('index')}}">Home</a></li>
+					<li><a href="{{url_for('search')}}">Search</a></li>
+					<li><a href="{{url_for('add_word')}}">Add definition</a></li>
+					<li><a href="{{url_for('get_specialities')}}">Manage Specialities</a></li>
 
-		{% block content %}
-		{% endblock %}
-
-	</div>
-
-    
-</div>
-
-<footer class="page-footer  indigo darken-3">
-	<div class="container">
-		<div class="row">
-			<div class="col l6 s12">
-
-				<p class="standard-font">© 2020 Copyright Heather Gilbert</p>
+				</ul>
 			</div>
+		</nav>
+	</header>
+
+
+	<main >
+		<div class="container">
+			{% block content %} {% endblock %}
 
 		</div>
-</footer>
+	</main>
 
-<!--JQuery-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
+
+	<footer class="page-footer  indigo darken-3">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<p class="standard-font">© 2020 Copyright Heather Gilbert</p>
+				</div>
+
+			</div>
+	</footer>
+
+	<!--JQuery-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
            
             $('select').material_select();
             $(".button-collapse").sideNav();
+            $('.modal').modal();
         });
-</script>
+	</script>
 
 </body>
 
