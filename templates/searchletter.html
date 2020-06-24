@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-
-<h3>The Dictionary</h3>
-
-        
-
 <div class="container">
 			<div class="row">
 				<div class="letters col l1 m1 s1 center">
@@ -90,6 +85,34 @@
 		</div>
 		
 
-	
-    
-{% endblock %}
+<h3>Results</h3>
+
+
+<ul>
+{% for term in terms|sort(attribute='terms', case_sensitive=false) %}
+      
+      <div class="row featurette">
+             <ul class="collapsible" data-collapsible="accordion">
+        
+        
+        <li>
+            <h4> {{terms.term}} </h4> 
+            
+                <div class=" word_header col s9">
+                    <strong>{{term.term}}</strong> - {{term.definition}}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    {{term.speciality}}
+                </span>
+            </div>
+        </li>
+        </ul>
+        </div>
+{% endfor %} 
+</ul> 
+</div>   
+{% endblock %} 
+
+ 

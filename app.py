@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
+import re
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'dictionary_db'
@@ -10,15 +11,32 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@dictionary-lopfd.mongodb.
 mongo = PyMongo(app)
 
 
+
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html", terms=mongo.db.terms.find())
+    return render_template("index.html")
+
+@app.route('/get_terms')
+def get_terms():
+    return render_template("search.html", 
+                           terms=mongo.db.terms.find())
+
+# Function for Individual Letter search
+@app.route('/get_letter/<letter>')
+def get_letter(letter):
+    print(letter)
+
+    results = mongo.db.term.find(
+        {"term": {"$regex": letter, "$options": 'i'}})
+
+    return render_template('searchletter.html', letter=results)
+    print(term)                           
+
 
 @app.route('/search')
 def search():
-    return render_template("search.html", terms=mongo.db.terms.find())
-
+    return render_template("search.html")
 
 
 @app.route('/add_word')
@@ -91,10 +109,11 @@ def add_speciality():
     return render_template('addspeciality.html')
 
 
-@app.route('/search_term', methods=[''])
+@app.route('/search_term', methods=['POST'])
 def search_term():
     terms=mongo.db.terms.find({"$search": {"$search": search_text}}).limit(10)
     return render_template("results.html", terms=terms, term_search=term_search)
+
 
 
 
