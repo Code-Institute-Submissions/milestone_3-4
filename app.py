@@ -17,26 +17,9 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-@app.route('/get_terms')
-def get_terms():
-    return render_template("search.html", 
-                           terms=mongo.db.terms.find())
-
-# Function for Individual Letter search
-@app.route('/get_letter/<letter>')
-def get_letter(letter):
-    print(letter)
-
-    results = mongo.db.term.find(
-        {"term": {"$regex": letter, "$options": 'i'}})
-
-    return render_template('searchletter.html', letter=results)
-    print(term)                           
-
-
-@app.route('/search')
-def search():
-    return render_template("search.html")
+@app.route('/browse')
+def browse():
+    return render_template("browse.html", terms=mongo.db.terms.find())
 
 
 @app.route('/add_word')
@@ -49,12 +32,12 @@ def add_word():
 def insert_word():
     terms = mongo.db.terms
     terms.insert_one(request.form.to_dict())
-    return redirect(url_for('search'))
+    return redirect(url_for('browse'))
 
 @app.route('/delete_word/<terms_id>')
 def delete_word(terms_id):
     mongo.db.terms.remove({'_id': ObjectId(terms_id)})
-    return redirect(url_for('search'))
+    return redirect(url_for('browse'))
 
 @app.route('/edit_word/<terms_id>')
 def edit_word(terms_id):
@@ -73,7 +56,7 @@ def update_word(terms_id):
         'definition':request.form.get('definition'),
         'speciality_name': request.form.get('speciality_name'),
     })
-    return redirect(url_for('search'))
+    return redirect(url_for('browse'))
 
 @app.route('/get_specialities')
 def get_specialities():
@@ -107,12 +90,6 @@ def delete_speciality(speciality_id):
 @app.route('/add_speciality')
 def add_speciality():
     return render_template('addspeciality.html')
-
-
-@app.route('/search_term', methods=['POST'])
-def search_term():
-    terms=mongo.db.terms.find({"$search": {"$search": search_text}}).limit(10)
-    return render_template("results.html", terms=terms, term_search=term_search)
 
 
 
