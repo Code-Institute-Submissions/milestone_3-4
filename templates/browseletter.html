@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h3>Word Results</h3>
+
+{% for result in letter|sort(attribute='term', case_sensitive=false) %}
+
+<div class="row featurette">
+	<ul>
+		<li>
+			<h4> {{result.term}} </h4>
+			<div>
+				<div class="col s3">
+				</div>
+
+				<div class=" word_header col s9">
+					<strong>{{result.definition}}</strong> - {{result.speciality_name}}
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+{% endfor %}
+{% endblock %}
