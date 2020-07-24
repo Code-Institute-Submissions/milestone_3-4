@@ -46,29 +46,26 @@
     margin-top: 0px;
 }
 
-
-.browse_letter {
-    margin-bottom:250px;
+/* sticky footer css taken from materialize*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
+main {
+    flex: 1 0 auto;
+}
 
-/* -----------------------Browse Definitions ----------------*/
+/* -----------------------Browse Definitions Page----------------*/
 
 .letters {
     padding-left:150px;
 }
-
 
 .card {
     margin-left:150px;
     margin-right:150px;
 }
 
-.term-input {
-    text-transform: lowercase;
-}
-
-.term-input:first-letter {
-    text-transform: capitalize
-}
 

@@ -17,6 +17,7 @@ def index():
     return render_template("index.html")
 
 
+# Filter by alphabetical letter
 @app.route('/filter_letters/<letter>')
 def filter_letters(letter):
     print(letter)
@@ -28,17 +29,20 @@ def filter_letters(letter):
     print(term)
 
 
+# Get all definitions
 @app.route('/browse')
 def browse():
     return render_template("browse.html", terms=mongo.db.terms.find())
 
 
+# Add a definition to the database
 @app.route('/add_word')
 def add_word():
     return render_template('addword.html',
                            speciality=mongo.db.speciality.find())
 
 
+# Post the new definition to the database
 @app.route('/insert_word', methods=['POST'])
 def insert_word():
     terms = mongo.db.terms
@@ -46,12 +50,14 @@ def insert_word():
     return redirect(url_for('browse'))
 
 
+# Delete a definition from the database
 @app.route('/delete_word/<terms_id>')
 def delete_word(terms_id):
     mongo.db.terms.remove({'_id': ObjectId(terms_id)})
     return redirect(url_for('browse'))
 
 
+# Edit a definition
 @app.route('/edit_word/<terms_id>')
 def edit_word(terms_id):
     the_term = mongo.db.terms.find_one({"_id": ObjectId(terms_id)})
@@ -60,6 +66,7 @@ def edit_word(terms_id):
                            speciality=all_specialities)
 
 
+# Post the edited definition to the database
 @app.route('/update_word/<terms_id>', methods=["POST"])
 def update_word(terms_id):
     terms = mongo.db.terms
@@ -72,18 +79,21 @@ def update_word(terms_id):
     return redirect(url_for('browse'))
 
 
+# Get list of specialities
 @app.route('/get_specialities')
 def get_specialities():
     return render_template('specialities.html',
                            speciality=mongo.db.speciality.find())
 
 
+# Edit speciality
 @app.route('/edit_speciality/<speciality_id>')
 def edit_speciality(speciality_id):
     return render_template('editspeciality.html',
                            speciality=mongo.db.speciality.find_one({'_id': ObjectId(speciality_id)}))
 
 
+# Post edited speciality to database
 @app.route('/update_speciality/<speciality_id>', methods=['POST'])
 def update_speciality(speciality_id):
     mongo.db.speciality.update(
@@ -92,6 +102,13 @@ def update_speciality(speciality_id):
     return redirect(url_for('get_specialities'))
 
 
+# Add a speciality
+@app.route('/add_speciality')
+def add_speciality():
+    return render_template('addspeciality.html')
+
+
+# Post the new speciality to database
 @app.route('/insert_speciality', methods=['POST'])
 def insert_speciality():
     speciality_doc = {'speciality_name': request.form.get('speciality_name')}
@@ -99,15 +116,11 @@ def insert_speciality():
     return redirect(url_for('get_specialities'))
 
 
+# Delete a speciality 
 @app.route('/delete_speciality/<speciality_id>')
 def delete_speciality(speciality_id):
     mongo.db.speciality.remove({'_id': ObjectId(speciality_id)})
     return redirect(url_for('get_specialities'))
-
-
-@app.route('/add_speciality')
-def add_speciality():
-    return render_template('addspeciality.html')
 
 
 if __name__ == '__main__':
