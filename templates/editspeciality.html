@@ -1,24 +1,28 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h3>Edit Speciality</h3>
-<div class="row individual-page-footer">
-    <form action="{{ url_for('update_speciality', speciality_id=speciality._id) }}" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">medical_services</i>
-                <input id="speciality_name" name="speciality_name" type="text" class="validate" value="{{speciality.speciality_name}}">
-                <label for="speciality_name">Speciality</label>
-            </div>
-        </div>
-        <div class="row">
-            <button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
+
+<div class="container">
+
+	<h4>Edit Speciality</h4>
+	<div class="row individual-page-footer">
+		<form action="{{ url_for('update_speciality', speciality_id=speciality._id) }}" method="POST" class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">medical_services</i>
+					<input id="speciality_name" name="speciality_name" type="text" class="validate" value="{{speciality.speciality_name}}">
+					<label for="speciality_name">Speciality</label>
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
             <i class="material-icons right">done</i></a>    
              </button>
-             <button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
+				<button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
             <i class="material-icons right">close</i></a>    
              </button>
-        </div>
-    </form>
+			</div>
+		</form>
+	</div>
 </div>
 {% endblock %}

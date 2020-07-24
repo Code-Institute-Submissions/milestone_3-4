@@ -1,22 +1,26 @@
 {% extends 'base.html'%}
-
 {% block content %}
-<h3>Add Speciality</h3>
-<form action="{{ url_for('insert_speciality') }}" method="POST" class="col s12">
-    <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">playlist_add</i>
-            <input id="speciality_name" name="speciality_name" type="text" class="validate">
-            <label for="speciality_name">Speciality</label>
-        </div>
-    </div>
-    <div class="row individual-page-footer">
-            <button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
+
+<div class="container">
+
+	<h4>Add Speciality</h4>
+
+	<form action="{{ url_for('insert_speciality') }}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">playlist_add</i>
+				<input id="speciality_name" name="speciality_name" type="text" class="validate">
+				<label for="speciality_name">Speciality</label>
+			</div>
+		</div>
+		<div class="row individual-page-footer">
+			<button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
             <i class="material-icons right">done</i></a>    
              </button>
-             <button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
+			<button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
             <i class="material-icons right">close</i></a>    
              </button>
-        </div>
-</form>
+		</div>
+	</form>
+</div>
 {% endblock %}

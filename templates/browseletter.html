@@ -1,25 +1,123 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<h3>Word Results</h3>
-
-{% for result in letter|sort(attribute='term', case_sensitive=false) %}
-
-<div class="row featurette">
-	<ul>
-		<li>
-			<h4> {{result.term}} </h4>
-			<div>
-				<div class="col s3">
-				</div>
-
-				<div class=" word_header col s9">
-					<strong>{{result.definition}}</strong> - {{result.speciality_name}}
+<div class="row letters">
+	<div class="col">
+		<div>
+			<div class="background">
+				<div class="col">
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='A')}}">A</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='B')}}">B</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='C')}}">C</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='D')}}">D</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='E')}}">E</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='F')}}">F</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='G')}}">G</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='H')}}">H</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='I')}}">I</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='J')}}">J</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='K')}}">K</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='L')}}">L</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='M')}}">M</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='N')}}">N</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='O')}}">O</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='P')}}">P</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='Q')}}">Q</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='R')}}">R</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='S')}}">S</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='T')}}">T</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='U')}}">U</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='V')}}">V</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='W')}}">W</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='X')}}">X</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='Y')}}">Y</a></h5>
+					</div>
+					<div class="letters col center">
+						<h5><a class="black-text" href="{{url_for('filter_letters', letter='Z')}}">Z</a></h5>
+					</div>
 				</div>
 			</div>
-		</li>
-	</ul>
+		</div>
+	</div>
 </div>
-{% endfor %}
-{% endblock %}
+
+<div class="container">
+
+<h4>Letter Search</h4>
+	<div class="browse_background">
+    {% for result in letter|sort(attribute='term', case_sensitive=false) %}
+		<div class="row">
+			<div class="col s12">
+				<div class="card transparent lighten-5">
+					<div class="card-content black-text">
+						<span class="card-title"><strong>{{result.term}}</strong></span>
+						<p>{{result.definition}}</p>
+						<p>Speciality - {{result.speciality_name}}</p>
+
+					</div>
+                    {% for terms in terms|sort(attribute='term') %}
+					<div class="card-action">
+                    
+						<a href="{{url_for('edit_word', terms_id=terms._id)}}"
+							class="waves-effect waves-light btn-floating btn_small grey darken-1"><i class="material-icons">edit</i></a>
+						<a href="{{url_for('delete_word', terms_id=terms._id)}}"
+							class="waves-effect waves-light btn-floating btn_small red darken-4"><i class="material-icons">delete</i></a>
+					</div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+
+{%endblock%}

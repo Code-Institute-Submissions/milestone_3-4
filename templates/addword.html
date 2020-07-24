@@ -1,44 +1,48 @@
-{% extends 'base.html' %} {% block content %}
-<h3>Add a Definition</h3>
-<div class="row">
-    <form action="{{ url_for('insert_word') }}" method="POST" class="col s12">
-        <div class="row">
-            
-            <div class="input-field col s12">
-                <i class="material-icons prefix">menu_book</i>
-                <input id="term" name="term" type="text">
-                <label for="icon_prefix">Medical Term</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">help_center</i>
-                <textarea name="definition" id="definition" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Definition</label>
-            </div>
-        </div>
-        <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">medical_services</i>
-                    <select id="speciality" name="speciality_name">
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+	<h4>Add a Definition</h4>
+
+	<div class="row">
+		<form action="{{ url_for('insert_word') }}" method="POST" class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">menu_book</i>
+					<input id="term" name="term" type="text">
+					<label for="icon_prefix">Medical Term</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">help_center</i>
+					<textarea name="definition" id="definition" class="materialize-textarea"></textarea>
+					<label for="icon_telephone">Definition</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">medical_services</i>
+					<select id="speciality" name="speciality_name">
                   <option value="" disabled selected>Choose speciality</option>
                   {% for speciality in speciality %}
                       <option value="{{speciality.speciality_name}}">{{speciality.speciality_name}}</option>
                   {% endfor %}
                     </select>
-                    <label>Speciality</label>
-                </div>
-        </div>
+					<label>Speciality</label>
+				</div>
+			</div>
 
-        <div class="row">
-            <button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
+			<div class="row">
+				<button class="btn waves-effect waves-light green darken-4 btn-floating btn_small" type="submit" name="action">
             <i class="material-icons right">done</i></a>    
              </button>
-             <button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
+				<button class="btn waves-effect waves-light red darken-4 btn-floating btn_small" type="reset" name="action">
             <i class="material-icons right">close</i></a>    
              </button>
-        </div>
-    </form>
+			</div>
+		</form>
+	</div>
 </div>
-
 {% endblock %}
