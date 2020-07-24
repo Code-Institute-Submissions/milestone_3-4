@@ -1,7 +1,6 @@
 
 
 
-
 /* -----------------------Home page ----------------*/
 .index_background  {
     background-image: linear-gradient(
@@ -44,13 +43,13 @@
 
 .page-footer {
     padding-bottom: 10px;
-    margin-top: 0;
-
+    margin-top: 0px;
 }
 
 .individual-page-footer {
-    margin-bottom:250px;
+    margin-top:250px;
 }
+
 
 
 
@@ -65,20 +64,8 @@
 
 /* -----------------------Browse Definitions ----------------*/
 
-.browse_background {
-    background-image: url("/static/img.book2.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-
 .letters {
     padding-left:150px;
-}
-
-.text-transform {
-    text-transform: capitalize;
 }
 
 
@@ -86,3 +73,12 @@
     margin-left:150px;
     margin-right:150px;
 }
+
+.term-input {
+    text-transform: lowercase;
+}
+
+.term-input:first-letter {
+    text-transform: capitalize
+}
+

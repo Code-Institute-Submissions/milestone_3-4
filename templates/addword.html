@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">menu_book</i>
-					<input id="term" name="term" type="text">
+					<input id="term" name="term" type="text" class="term-input" />
 					<label for="icon_prefix">Medical Term</label>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 					<i class="material-icons prefix">medical_services</i>
 					<select id="speciality" name="speciality_name">
                   <option value="" disabled selected>Choose speciality</option>
-                  {% for speciality in speciality %}
+                  {% for speciality in speciality|sort(attribute='speciality_name') %}
                       <option value="{{speciality.speciality_name}}">{{speciality.speciality_name}}</option>
                   {% endfor %}
                     </select>

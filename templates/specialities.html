@@ -5,8 +5,7 @@
 
 	<div class="row">
 		<div>
-			<h4>Specialities </h4>
-
+			<h4 class="center">Specialities</h4>
 			<a href="{{url_for('add_speciality')}}"
 				class="waves-effect waves-light btn-floating btn_small grey darken-1">
 				<i class="material-icons right">playlist_add</i>
@@ -14,7 +13,7 @@
 		</div>
 
 	</div>
-	{% for speciality in speciality %}
+	{% for speciality in speciality|sort(attribute='speciality_name') %}
 	<div class="row">
 		<div class="col s12">
 			<div class="card transparent lighten-5">

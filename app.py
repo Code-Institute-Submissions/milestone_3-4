@@ -22,7 +22,8 @@ def filter_letters(letter):
     print(letter)
 
     results = mongo.db.terms.find(
-        {"term": {"$regex": letter}})
+        {"term": {"$regex": letter, "$options":"i"}})
+
 
     return render_template('browseletter.html', letter=results)
     print(term)
