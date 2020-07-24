@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId 
+from bson.objectid import ObjectId
 
 
 app = Flask(__name__)
@@ -22,8 +22,7 @@ def filter_letters(letter):
     print(letter)
 
     results = mongo.db.terms.find(
-        {"term": {"$regex": letter, "$options":"i"}})
-
+        {"term": {"$regex": letter, "$options": "i"}})
 
     return render_template('browseletter.html', letter=results)
     print(term)
@@ -97,7 +96,7 @@ def update_speciality(speciality_id):
 def insert_speciality():
     speciality_doc = {'speciality_name': request.form.get('speciality_name')}
     mongo.db.speciality.insert_one(speciality_doc)
-    return redirect(url_for('get_specialities'))    
+    return redirect(url_for('get_specialities'))
 
 
 @app.route('/delete_speciality/<speciality_id>')
