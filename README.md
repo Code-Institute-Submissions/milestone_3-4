@@ -14,12 +14,12 @@ alphabetical display of all definitions.*
 With this in mind, I created an app that allowed the user to find the definition of a medical term in the linked database 
 and add, edit or delete a definition of a medical term already in the linked database.
 
-### UX
+## UX
 
 This app is for users who want to find definitions of medical terms and add to the database in order to look up terms 
 in the future, or to aid or share with when training members of the medical profession.
 
-##### The user stories are -
+### The user stories are -
 
 **Users searching for definitions within the Medical Term Dictionary:**
 * 	I want to be able to find definitions of medical terminology.
@@ -30,15 +30,15 @@ in the future, or to aid or share with when training members of the medical prof
 *	I want to be able to add definitions to the database.
 *	I want to search for these definitions in the future. 
 *	I want to be able to edit and delete definitions on the site.
-*	I want to be able to add or modify specialities within the database. 
+*	I want to be able to add or modify specialities within the database.
 
-### Wireframes
+## Wireframes
 
 Please refer to the wireframes directory for individual page wireframes. 
 
 ### Features
 
-##### Existing Features
+**Existing Features**
 
 *	**Homepage** – The homepage welcomes users to the medical term dictionary. There is a nav bar, 
     a button to enter the dictionary and a footer on this page.
@@ -62,7 +62,8 @@ Please refer to the wireframes directory for individual page wireframes.
     into the forms which will then be added to the database.  
 *	**Footer** – The Footer shows copyrighted information. 
 
-##### Features Left to Implement
+**Features Left to Implement**
+
 *	Adding the ability for users to create profiles, log in and save specific definitions. This will also allow there 
     to be a section in the database stating who added the definition.
 *	Adding the ability to search or group definitions by speciality. This will allow users who only work within one 
@@ -75,19 +76,31 @@ Please refer to the wireframes directory for individual page wireframes.
 ##### Languages Used:
 
 **HTML** – used to structure the site.
-**CSS** – used to style the site.
-**Javascript** - used for the interactive elements on the site.
-**Materialize** – this framework was used to style, structure and create a responsive site.
-**Python**
-**Flask**
-**MongoDB** – the noSQL database that was used for the project’s data.
-**Jinja2**
-**GitHub** - used to store the project’s code while it is being worked on.
-**Gitpod** - used to write the project code.
-**Heroku** – used to deploy the project.
-**Microsoft Word** – used to create the wireframes for the project.
 
-### Testing
+**CSS** – used to style the site.
+
+**Javascript** - used for the interactive elements on the site.
+
+**Materialize** – this framework was used to style, structure and create a responsive site.
+
+**Python**
+
+**Flask**
+
+**MongoDB** – the noSQL database that was used for the project’s data.
+
+**Jinja2**
+
+**GitHub** - used to store the project’s code while it is being worked on.
+
+**Gitpod** - used to write the project code.
+
+**Heroku** – used to deploy the project.
+
+**Balsamiq** – used to create the wireframes for the project.
+
+
+## Testing
 
 *	**Welcome Page**
     *	Title link found to be directing user back to welcome home page.  
@@ -128,31 +141,37 @@ Please refer to the wireframes directory for individual page wireframes.
     manage speciality page. The amended entry can be seen here.
     *   Changing the text and pressing the red cancel button resets the modifications back to the original entry. 
 
-### Responsiveness of site:
+## Responsiveness of site:
 
 To aid in creating a responsive site, I used Materialize’s Grid System. Through the process of creating this app, 
 I checked the various break points to see if the page layouts worked on various device screen sizes, using Chrome 
 Developer Tools.
 
-Navbar: For mobile views for the project, users will see that the full desktop navbar is reduced to just the 
+**Navbar:** For mobile views for the project, users will see that the full desktop navbar is reduced to just the 
 logo and a burger button, which activates the side nav containing the navbar elements. 
 
-Page layout and Cards: I experimented with various column sizes, layouts and card types to achieve a site which 
+**Page layout and Cards:** I experimented with various column sizes, layouts and card types to achieve a site which 
 was visually appealing and appropriate to the screen size it would be viewed on.
 
-### Debugging:
+## Debugging:
 
 **Issue:** Letter filtering only showing entries starting with an upper case letter.
+
 **Solution:** Used the $regex query method to target specific entries with “$options” : “i” added to the function. 
 
+
 **Issue:** Letter filtering showing entries containing the selected letter anywhere in the definition term
+
 **Solution:**  letter = ‘^A’ added to the link for each letter within the html coding. 
 
+
 **Issue:** Add / edit forms displayed the specialities in the order they had been entered into the database.
+
 **Solution:** Added sort attribute by speciality name to each html speciality div to order the specialities 
 in alphabetical order to aid in filling out the form. 
 
-### Deployment
+
+## Deployment
 
 I created a repository on GitHub using the GitPod template supplied by Code Institute and linked GitPod to my 
 project. I created an app on Heroku. I added the requirements.txt and procfile elements on GitPod and specified 
@@ -160,7 +179,9 @@ the IP and Port on Heroku to link my project up.
 I committed the content at various stages throughout the creation of my project. 
 Having completed my project, I pushed to Heroku as the final stage of deployment. 
 
-### Credits
+
+## Credits
+
 
 ##### Content
 
@@ -168,9 +189,11 @@ Having completed my project, I pushed to Heroku as the final stage of deployment
 *	Guidance on the layout and filter functions were obtained from queries on Slack.
 *	This README file is based on the Code Institute template.
 
+
 ##### Media
 
 *	All photos used in this site are from Google Images.
+
 
 ##### Acknowledgements
 
