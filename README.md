@@ -36,7 +36,7 @@ in the future, or to aid or share with when training members of the medical prof
 
 Please refer to the wireframes directory for individual page wireframes. 
 
-### Features
+## Features
 
 **Existing Features**
 
@@ -71,9 +71,9 @@ Please refer to the wireframes directory for individual page wireframes.
 *	Adding an alert box when users are deleting an item. This will safeguard against definitions being deleted in error.
 *	Adding a feature to stop the same definition being added multiple times. 
 
-### Technologies Used
+## Technologies Used
 
-##### Languages Used:
+#### Languages Used:
 
 **HTML** – used to structure the site.
 
